@@ -1,0 +1,10 @@
+% EPSRC CDT in Delivering Quantum Technologies
+% University College London
+% MRES Group Project - Deterministic Generation of Cluster States
+% Author:   Gareth Jones
+% History:  18.05.201  file created
+%                      full description at the top
+%           
+
+wern_state = Werner(4)
+bar3(wern_s
