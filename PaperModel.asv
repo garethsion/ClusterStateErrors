@@ -43,15 +43,4 @@ hbar = h/(2*pi);
 hbar_w2 = hbar * w2;
 hbar_w3 = hbar * w3;
 
-Delta_E2 = hbar_w2; % The variables represent energy splittings of the DE
-Delta_E3 = hbar_w3; % ... and BiE eigenstates.
-
-H2 = 0.5 * [0, hbar_w2; hbar_w2, 0]; % Ham. acting on DE states 
-H3 = 0.5 * [0, hbar_w3; hbar_w3, 0]; % Ham acting on BiE states
-
-Free_Hamiltonian = mod(H2, H3); % Ham. describing unitary evolution
-
-Pulse_Hamiltonian = 0.5 * [Delta, hbar_w2, Omega_R, 0;...
-    hbar_w2, Delta, 0, Omega_L; Omega_R, 0, -Delta, hbar_w3;...
-    0, Omega_L, hbar_w3, -Delta];
-
+H2 = 0.5 * [0, hbar_w2; hbar_w2,
