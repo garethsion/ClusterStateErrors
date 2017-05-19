@@ -43,4 +43,29 @@ hbar = h/(2*pi);
 hbar_w2 = hbar * w2;
 hbar_w3 = hbar * w3;
 
-H2 = 0.5 * [0, hbar_w2; hbar_w2,
+Delta_E2 = hbar_w2; % The variables represent energy splittings of the DE
+Delta_E3 = hbar_w3; % ... and BiE eigenstates.
+
+H2 = 0.5 * [0, hbar_w2; hbar_w2, 0]; % Ham. acting on DE states 
+H3 = 0.5 * [0, hbar_w3; hbar_w3, 0]; % Ham acting on BiE states
+
+Free_Hamiltonian = mod(H2, H3); % Ham. describing unitary evolution
+
+% I don't really understand the equation in SM 4.2, sdescribing the
+% Gaussian pulse handedness. So for now I am putting in some dmmy data to
+% work with, and then will replace after discussion with the team.
+
+R = 1/sqrt(2) * [1;-1i]; % Right handed CP Jones basis vector
+L = 1/sqrt(2) * [1;1i]; % Left handed CP Jones basis vector
+
+e = er*R + el*L
+
+Omega_w = hbar_Omega_w/hbar;
+
+Omega_RL = 0.5 * Theta * 1/(sqrt(2*pi)*Omega_w) *...
+    exp(-0.5*Omega_w*(t^2))*e_RL;
+
+Pulse_Hamiltonian = 0.5 * [Delta, hbar_w2, Omega_R, 0;...
+    hbar_w2, Delta, 0, Omega_L; Omega_R, 0, -Delta, hbar_w3;...
+    0, Omega_L, hbar_w3, -Delta];
+

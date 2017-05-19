@@ -51,6 +51,29 @@ H3 = 0.5 * [0, hbar_w3; hbar_w3, 0]; % Ham acting on BiE states
 
 Free_Hamiltonian = mod(H2, H3); % Ham. describing unitary evolution
 
+% I don't really understand the equation in SM 4.2, sdescribing the
+% Gaussian pulse handedness. So for now I am putting in some dmmy data to
+% work with, and then will replace after discussion with the team.
+
+R = 1/sqrt(2) * [1;-1i]; % Right handed CP Jones basis vector
+L = 1/sqrt(2) * [1;1i]; % Left handed CP Jones basis vector
+
+e_R = 1; % For now, let's just say that the laser is RHCP only
+e_L = 0;
+
+e_RL = e_R*R + e_L*L;
+
+t = t_rad; % I don't think this is necessarily correct, but just putting 
+           %this in as a dummy var for now
+
+Omega_w = hbar_Omega_w/hbar;
+
+Omega_RL = 0.5 * Theta * 1/(sqrt(2*pi)*Omega_w) *...
+    exp(-0.5*Omega_w*(t^2))*e_RL;
+
+Omega_R = 0; % This also is incorrect
+Omega_L = 0;
+
 Pulse_Hamiltonian = 0.5 * [Delta, hbar_w2, Omega_R, 0;...
     hbar_w2, Delta, 0, Omega_L; Omega_R, 0, -Delta, hbar_w3;...
     0, Omega_L, hbar_w3, -Delta];
