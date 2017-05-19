@@ -8,7 +8,7 @@
 %           
 
 % Add the path to the qlib library
-%addpath ('C:/Users/Gareth/Desktop/2016Clean/Documents/qlib'); qlib;
+% addpath ('C:/Users/Gareth/Desktop/2016Clean/Documents/qit'); init;
 
 X = [0,1;1,0];
 Y = [0,-1i;1i,0];
@@ -20,6 +20,7 @@ I = eye(2,2);
 % et al, Science vol. 354, issue 6311, pp. 434-437.
 %=========================================================================
 t_rad = 0.33E-09; % BiE lifetime t_rad = 1/gamma_d
+gamma_d = 1/t_rad;
 w3 = (2*pi)/5.05E-09; % BiE precession rate
 w2 = (2*pi)/3.03E-09; % DE precession rate
 T2_star = 100E-09; % DE dephasing time T2*=1/gamma_2*
@@ -55,6 +56,7 @@ Free_Hamiltonian = mod(H2, H3); % Ham. describing unitary evolution
 % Gaussian pulse handedness. So for now I am putting in some dmmy data to
 % work with, and then will replace after discussion with the team.
 
+% See https://en.wikipedia.org/wiki/Circular_polarization 
 R = 1/sqrt(2) * [1;-1i]; % Right handed CP Jones basis vector
 L = 1/sqrt(2) * [1;1i]; % Left handed CP Jones basis vector
 
@@ -78,3 +80,5 @@ Pulse_Hamiltonian = 0.5 * [Delta, hbar_w2, Omega_R, 0;...
     hbar_w2, Delta, 0, Omega_L; Omega_R, 0, -Delta, hbar_w3;...
     0, Omega_L, hbar_w3, -Delta];
 
+% Free evolution and decay
+% Not really sure how to model this
