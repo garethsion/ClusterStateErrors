@@ -1,0 +1,1 @@
+* I don't fully get the Gaussian pulse stuff in section 4.2 of the supplementary material of Schwartz et al. However, maybe this page will explain to a degree: https://en.wikipedia.org/wiki/Circular_polarization
