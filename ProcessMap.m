@@ -65,4 +65,22 @@ rho_DE = rho_DE_term1 + rho_DE_term2 + rho_DE_term3 + rho_DE_term4;
 % Determine the density matrix for the DE and emitted photon. Dummy values.
 
 %rho_DE_minus_1 = 
-%==========================================================================
+%=========================================================================
+
+%=========================================================================
+% Build the process matrix. This code will build the plot. I've ripped it
+% from my code from the tomography lab with John Morton, and the equations
+% below come from Nielson and Chuang. These equations may require
+% modification here.
+%=========================================================================
+
+p1 = rho_DE_term1;
+p4 = rho_DE_term2;
+p3 = rho_DE_term3 - 1i*rho_DE_term4 - (1-1i)*(p1+p4)/2;
+p2 = rho_DE_term3 + 1i*rho_DE_term4 - (1+1i)*(p1+p4)/2;
+    
+Lambda = 1/2 * [I, sigmaX; sigmaX, -1*I];
+Chi = Lambda * [p1, p2; p3, p4] * Lambda;
+bar3(real(Chi));
+% hold on;
+% bar3(imag(Chi), 'b');
