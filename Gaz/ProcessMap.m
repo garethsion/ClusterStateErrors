@@ -4,10 +4,10 @@ sigmaY = [0,-1i;1i,0];
 sigmaZ = [1,0;0,-1];
 sigma0 = eye(2,2);
 
-X = sigmaX;
-Y = sigmaY;
-Z = sigmaZ;
-I = sigma0;
+X = 1/sqrt(2)*sigmaX;
+Y = 1/sqrt(2)*sigmaY;
+Z = 1/sqrt(2)*sigmaZ;
+I = 1/sqrt(2)*sigma0;
 
 %=========================================================================
 % This describes the gate based circuit shown in the paper. The values 
@@ -37,7 +37,7 @@ I = sigma0;
 
 % Probability of being in an initially pure state. Value deemed
 % experimentally.
-pure_init_prob = 0.72;
+pure_init_prob = 1;
 
 % Initial spin eigenstate is a pi excitation pulse
 psi_DE_init = -X;

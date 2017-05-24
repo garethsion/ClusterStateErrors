@@ -10,9 +10,9 @@
 % Add the path to the qlib library
 % addpath ('C:/Users/Gareth/Desktop/2016Clean/Documents/qit'); init;
 
-X = [0,1;1,0];
-Y = [0,-1i;1i,0];
-Z = [1,0;0,-1];
+X = 1/sqrt(2)*[0,1;1,0];
+Y = 1/sqrt(2)*[0,-1i;1i,0];
+Z = 1/sqrt(2)*[1,0;0,-1];
 I = eye(2,2);
 
 %=========================================================================

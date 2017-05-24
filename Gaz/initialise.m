@@ -8,9 +8,12 @@
 %           
 
 % Add the path to the qlib library
-qit_dir = 'C:/Users/Gareth/Desktop/2016Clean/Documents/qlib';
-qlib_dir = 'C:/Users/Gareth/Desktop/2016Clean/Documents/qit';
+% qit_dir = 'C:/Users/Gareth/Desktop/2016Clean/Documents/qlib';
+% qlib_dir = 'C:/Users/Gareth/Desktop/2016Clean/Documents/qit';
 
-addpath (qit_dir, qlib_dir); 
-init;
-qlib;
+qit_dir = 'C:/Users/Gareth/Desktop/qit';
+addpath(qit_dir)
+
+% addpath (qit_dir, qlib_dir); 
+init
+%qlib;
