@@ -74,13 +74,7 @@ rho_DE = rho_DE_term1 + rho_DE_term2 + rho_DE_term3 + rho_DE_term4;
 % modification here.
 %=========================================================================
 
-p1 = rho_DE_term1;
-p4 = rho_DE_term2;
-p3 = rho_DE_term3 - 1i*rho_DE_term4 - (1-1i)*(p1+p4)/2;
-p2 = rho_DE_term3 + 1i*rho_DE_term4 - (1+1i)*(p1+p4)/2;
-    
-Lambda = 1/2 * [I, sigmaX; sigmaX, -1*I];
-Chi = Lambda * [p1, p2; p3, p4] * Lambda;
+Chi = BuildChi(rho_DE_term1, rho_DE_term2, rho_DE_term3, rho_DE_term4)
 bar3(real(Chi));
 % hold on;
 % bar3(imag(Chi), 'b');
