@@ -18,6 +18,6 @@ if ~(rhoSize==pauliSize)
     error(msg)
 end
 
-exValue = trace(pauliOperator*rho)
+exValue = trace(pauliOperator*rho);
 
 return
