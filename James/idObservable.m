@@ -19,15 +19,15 @@ if ~(rhoSize(1)==rhoSize(2))
 end
 
 
-M = length(IDtable)
+M = length(IDtable);
 
 
 for k = 1:M
-    IDops(:,:,k) = pauliTensor(IDtable{k})
+    IDops(:,:,k) = pauliTensor(IDtable{k});
 end
 
-alpha = sum(IDops,3)
+alpha = sum(IDops,3);
 
-alphaExValue = trace(alpha*rho)
+alphaExValue = trace(alpha*rho);
 
-output = alphaExValue
+output = alphaExValue;
