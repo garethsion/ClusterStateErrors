@@ -74,7 +74,7 @@ rho_DE = rho_DE_term1 + rho_DE_term2 + rho_DE_term3 + rho_DE_term4;
 % modification here.
 %=========================================================================
 
-Chi = BuildChi(rho_DE_term1, rho_DE_term2, rho_DE_term3, rho_DE_term4)
+Chi = BuildChi(rho_DE_term1, rho_DE_term2, rho_DE_term3, rho_DE_term4, 2)
 bar3(real(Chi));
 % hold on;
 % bar3(imag(Chi), 'b');
