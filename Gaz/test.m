@@ -8,7 +8,7 @@
 %           
 
 % Add the path to the qlib library
-%addpath ('C:/Users/Gareth/Desktop/2016Clean/Documents/qlib'); qlib;
+addpath ('C:/Users/Gareth/Desktop/2016Clean/Documents/qlib'); qlib;
 
 % Generate dummy Werner state for initial testing, and plot density matrix
 wern_state = Werner(100);

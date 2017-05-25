@@ -54,16 +54,9 @@ hold on;
 bar3(imag(rho_cycle));
 
 cycle2=kron(cycle,[1;0]);
-CZ = kron(CZ,eye(16));
 
 rho_cycle2 = cycle2*cycle2';
 figure;bar3(rho_cycle2);
-
-end2 = CZ*cycle2;
-rho_end2 = end2*end2';
-
-figure('Name', 'End Cycle After 2 Excitations"=');bar3(rho_end2)
-%axis([0,32,0,32,0,0.5]);
 
 cycle3 = kron(cycle2,[1;0]);
 rho_cycle3 = cycle3*cycle3';
