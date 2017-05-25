@@ -1,4 +1,4 @@
-function cluster = Cluster(n)
+function cluster = Cluster(int)
     sigmaX = [0,1;1,0];
     sigmaY = [0,-1i;1i,0];
     sigmaZ = [1,0;0,-1];
@@ -15,7 +15,7 @@ function cluster = Cluster(n)
     G = 1/sqrt(2)*[1,1i;1i,1];
     CNOT = cnot();
 
-    no_of_qubits = 4;
+    no_of_qubits = int;
 
     for n=1:no_of_qubits
         if n == 1
@@ -29,6 +29,5 @@ function cluster = Cluster(n)
             cycle = kron(G, eye(2^n))*CNOT*space;
         end
     end
-    rho_cycle = cycle*cycle';
-    figure;bar3(real(rho_cycle));hold on; bar3(imag(rho_cycle));
+    cluster = cycle;
 end
