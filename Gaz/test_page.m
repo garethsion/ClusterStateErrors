@@ -8,7 +8,7 @@ Y = 1/sqrt(2)*sigmaY;
 Z = 1/sqrt(2)*sigmaZ;
 I = 1/sqrt(2)*sigma0;
 
-plus = 1/sqrt(2) * [1;-1];
+plus = 1/sqrt(2) * [1;1];
 initial_state = kron(plus,[1;0]);
 %G = sigmaX.*-1i;
 G = 1/sqrt(2)*[1,1i;1i,1];
