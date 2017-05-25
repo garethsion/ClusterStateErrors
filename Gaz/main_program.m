@@ -11,7 +11,7 @@
 % Generate Cluster state from Schwartz paper assuming unitary dynamics
 %=========================================================================
 
-size_of_cluster = 1;
+size_of_cluster = 4;
 
 if size_of_cluster > 6
    error('This number of qubits might crash your computer.')
