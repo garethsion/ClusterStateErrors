@@ -40,9 +40,9 @@ Now you could keep working on the same branch, commit, push, and create new pull
   
   `git pull`
   
-  `git checkout -b *fun new branch name*`
+  `git checkout -b <fun new branch name>`
   
-  `git push -u origin *fun new branch name*`
+  `git push -u origin <fun new branch name>`
   
 
 Then carry on working.
