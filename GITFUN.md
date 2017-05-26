@@ -1,6 +1,6 @@
 Safely merging your changes into master
 =======================================
-The main thing is don't ever try to push directly to master! Cut a branch, make your changes and then merge.
+The main thing is don't ever try to push directly to master! Cut a new branch from master, make your changes and then merge back in when you're finished.
 
 Starting from the master branch...
 
