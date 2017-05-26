@@ -8,13 +8,13 @@ Starting from the master branch...
   
 (gets latest master code from the repository)
 
-  git checkout -b <your new branch name goes here>
+  git checkout -b *your new branch name goes here*
 
 (This creates a new branch with the chosen name, and switches you to that branch)
 
 Do some local work and commit.
 
-  git push -u origin <your branch name>
+  git push -u origin *your branch name*
   
 (this (a) creates a new branch on github, (b) links it to the branch you are working on locally,
 (c) pushes all your commits to the branch on github.)
@@ -28,7 +28,7 @@ Now you can keep working on your local branch. You can keep committing and pushi
 When you've completed a chunk of work and want to merge it into the master, the safest way is to do it is on github, as you can see everything that's being added/deleted.
 
 1. Go to the main github page for the project, start a new 'Pull request'.
-2. Select base:master, compare:<your branch name>.
+2. Select base:master, compare:*your branch name*.
 3. Check your changes then 'Create pull request'.
 4. Comment if you like, then 'Create pull request' again.
 5. If there are no conflicts you can 'Merge pull request'.
@@ -40,9 +40,9 @@ Now you could keep working on the same branch, commit, push, and create new pull
   
   git pull
   
-  git checkout -b <fun new branch name>
+  git checkout -b *fun new branch name*
   
-  git push -u origin <fun new branch name>
+  git push -u origin *fun new branch name*
   
 
 Then carry on working.
