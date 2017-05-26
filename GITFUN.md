@@ -37,9 +37,13 @@ When you've completed a chunk of work and want to merge it into the master, the 
 Now you could keep working on the same branch, commit, push, and create new pull requests. But bear in mind if you do that you won't have the latest code that other people have added to master. You could merge the latest code into your current branch, but I think a cleaner way to do it is to switch back to the master, pull down the latest code and cut a new branch:
 
   git checkout master
+  
   git pull
+  
   git checkout -b <fun new branch name>
+  
   git push -u origin <fun new branch name>
+  
 
 Then carry on working.
 
