@@ -16,3 +16,12 @@ IDTable5 = [{'X Z I I I'};
              {'- Y X X X Y'}];
          
          
+genAntiTable5 = [{'- X Z I I I'};
+             {'- Z X Z I I'};
+             {'- I Z X Z I'};
+             {'- I I Z X Z'};
+             {'- I I I Z X'}];
+         
+
+         
+         
