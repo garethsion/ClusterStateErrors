@@ -8,13 +8,13 @@ Starting from the master branch...
   
 (gets latest master code from the repository)
 
-  `git checkout -b *your new branch name goes here*`
+  `git checkout -b <your new branch name goes here>`
 
 (This creates a new branch with the chosen name, and switches you to that branch)
 
 Do some local work and commit.
 
-  `git push -u origin *your branch name*`
+  `git push -u origin <your branch name>`
   
 (this (a) creates a new branch on github, (b) links it to the branch you are working on locally,
 (c) pushes all your commits to the branch on github.)
