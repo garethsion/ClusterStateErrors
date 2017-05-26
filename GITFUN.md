@@ -22,6 +22,8 @@ Do some local work and commit.
 Now you can keep working on your local branch. You can keep committing and pushing, but for future pushes just use:
 
   git push
+  
+( the -u flag links your local branch to the upstream (online) branch. You only use it the first you push after making a new branch.)
 
 When you've completed a chunk of work and want to merge it into the master, the safest way is to do it is on github, as you can see everything that's being added/deleted.
 
