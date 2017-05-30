@@ -19,5 +19,6 @@ if mod(M,2)==0
 else
     % M is odd
     F_sq_ID_upper = (alpha + M - 2)/(2*M - 2);
+end
 
 output = F_sq_ID_upper;
