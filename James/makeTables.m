@@ -22,6 +22,10 @@ genAntiTable5 = [{'- X Z I I I'};
              {'- I I Z X Z'};
              {'- I I I Z X'}];
          
-
+genMinusTable5 = [{'- X Z I I I'};
+             {'Z X Z I I'};
+             {'I Z X Z I'};
+             {'I I Z X Z'};
+             {'I I I Z X'}];
          
          
