@@ -10,13 +10,13 @@
 %=========================================================================
 % Generate Cluster state from Schwartz paper assuming unitary dynamics
 %=========================================================================
-% addpath('C:\Users\Gareth\Desktop\QETLAB-0.9');
+%addpath('C:\Users\Gareth\Desktop\QETLAB-0.9');
 % addpath('C:\Users\Gareth\Desktop\qit');
 %init;
-number_of_photons = 4;                                                                                                                                                                           ;
+number_of_photons = 2;                                                                                                                                                                           
 
 if number_of_photons > 6
-   error('This number of qubits might crash your computer.')
+   error('This number of qubits might crash your computer.');
 end
 
 % Initial state is a minus in the Shwartz paper
@@ -29,9 +29,8 @@ rho_cluster = Cluster_State*Cluster_State';
 % bar3(real(rho_cluster));hold on; bar3(imag(rho_cluster));
 % title([num2str(number_of_photons) ' Photon Cluster State Density Matrix'], 'FontSize', 30);
 
-loc = LocEntanglement(rho_cluster,(number_of_photons+1), 2,4)
+%loc = LocEntanglement(rho_cluster,(number_of_photons+1), 2,3)
 %Negativity(rho_cluster,length(rho_cluster));
 
 %neg = Negativity(rho_cluster);
-
 
