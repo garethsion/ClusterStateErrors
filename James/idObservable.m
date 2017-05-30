@@ -24,10 +24,11 @@ M = length(IDtable);
 
 for k = 1:M
     IDops(:,:,k) = pauliTensor(IDtable{k});
+    ObsExpectation(k) = trace(IDops(:,:,k)*rho);
 end
 
 alpha = sum(IDops,3);
 
 alphaExValue = trace(alpha*rho);
 
-output = alphaExValue;
+output = [alphaExValue,ObsExpectation];
