@@ -31,7 +31,7 @@ for k = 1:numberTables
     currentLower = real(idFidLower(currentAlpha,M));
     currentUpper = real(idFidUpper(currentAlpha,M));
     Results(k,:) = {currentTableName, currentObservable, currentLower,...
-                    currentUpper,sqrt(currentLower),sqrt(currentUpper)};
+                    currentUpper,real(sqrt(currentLower)),real(sqrt(currentUpper))};
 end
 best_lower  = max(cell2mat(Results(:,5)));
 best_upper = min(cell2mat(Results(:,6)));
