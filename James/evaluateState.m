@@ -35,6 +35,8 @@ for k = 1:numberTables
 end
 best_lower  = max(cell2mat(Results(:,5)));
 best_upper = min(cell2mat(Results(:,6)));
+numerics = cell2mat(Results(:,2));
+best_alpha = max(numerics(:,1));
 
-[output] = {Results, best_lower, best_upper}
+[output] = {Results, best_lower, best_upper, best_alpha}
     
