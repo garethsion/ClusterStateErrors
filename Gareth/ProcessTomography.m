@@ -39,6 +39,13 @@ for x=1:4
     end
 end
 
+% for u=1:4
+%     for v=1:4
+%         state_tam(:,4*(u-1)+v) = Cluster_tam
+%     end
+% end
+
+
 rho = zeros(4,64);
 
 % for x=1:length(state)

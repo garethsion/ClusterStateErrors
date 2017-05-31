@@ -3,7 +3,7 @@ sigmaX=[0 1;1 0];
 sigmaZ=[1 0;0 -1];
 sigmaY=[0,-1i;1i,0];
 
-N = 2;
+N = 4;
 
 start=0;
 for n=1:N-2;

@@ -13,7 +13,7 @@
 %addpath('C:\Users\Gareth\Desktop\QETLAB-0.9');
 % addpath('C:\Users\Gareth\Desktop\qit');
 %init;
-number_of_photons = 2;                                                                                                                                                                           
+number_of_photons = 3;                                                                                                                                                                           
 
 if number_of_photons > 6
    error('This number of qubits might crash your computer.');
