@@ -24,13 +24,13 @@ ident=eye(d);
 for k = 2:M
     isIdentity = 0;
     currentMatrix = currentMatrix*matrices(:,:,k);
-    isIdentity = sum((currentMatrix-ident)<tolerance)
-    if isIdentity
+    notIdentity = sum(sum(~((abs(currentMatrix-ident))<tolerance)));
+    if notIdentity == 0
         display(['Identity reached at element number ' num2str(k)]);
     end
 end
 
-if isIdentity
+if notIdentity == 0
     display(['Final product was the identity']);
 else
     display(['Final product was NOT the identity']);
