@@ -32,10 +32,12 @@ end
 
 if notIdentity == 0
     display(['Final product was the identity']);
+    finalCheck = 1;
 else
     display(['Final product was NOT the identity']);
+    finalCheck = 0;
 end
 
-output = currentMatrix;
+output = finalCheck;
 
 end
