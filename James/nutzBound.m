@@ -9,7 +9,9 @@ function [output] = nutzBound(n,obsExpectation)
 
 ZXZ = min(obsExpectation);
 
-LE_bound = 1 - n*(1 - ZXZ);
+calc_LE_bound = 1 - n*(1 - ZXZ);
+
+LE_bound = max[0,calc_LE_bound];
 
 output = LE_bound;
 
