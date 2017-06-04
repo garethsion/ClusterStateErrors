@@ -4,7 +4,7 @@ function [output] = localiseQubits(measurementOutcomes,rho,qubit_1,qubit_2);
 %%%% a five qubit state, qubit_1=2 and qubit_2=5 traces out qubits 1, 3,
 %%%% and 4. Also calculates concurrence for reduced state.
 
-number_qubits = log2(size(rho,1))
+number_qubits = log2(size(rho,1));
 
 number_outcomes = length(measurementOutcomes);
 
