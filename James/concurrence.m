@@ -3,7 +3,7 @@ function [output] = concurrence(rho)
 
 YY = [ 0 0 0 -1;
        0 0 1 0;
-       0 1 0 1;
+       0 1 0 0;
       -1 0 0 0]
   
 rho_twirl = YY*rho*YY;
