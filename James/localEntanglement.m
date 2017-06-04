@@ -12,13 +12,13 @@ for k = 1:number_settings;
     localised = localiseQubits(this_setting,rho,qubit_1,qubit_2);
     probabilities = cell2mat(localised(:,2));
     concurrences = cell2mat(localised(:,5));
-    avg_concurrence(k) = sum(probabilities.*concurrences);
+    avg_concurrence(k) = real(sum(probabilities.*concurrences));
     results(k,:) = {setting_label,localised,probabilities,concurrences,...
         avg_concurrence(k)};
 end
 
 LE = max(avg_concurrence);
 
-output = {LE, results}
+output = {LE, results};
     
 
