@@ -9,7 +9,7 @@ projectors = makePaulis(measurementOutcomes);
 for k = 1:number_outcomes
     
     this_projector = projectors(:,:,k);
-    projected_matrix = this_projector*rho;
+    projected_matrix = this_projector*rho*this_projector;
     probability = trace(projected_matrix);
     projected_state = projected_matrix/probability;
     
