@@ -2,7 +2,7 @@
 
 %% Single qubit
 
-Z_measure = {'Z0';'Z1'}
+Z_measure = {'Z0';'Z1'};
 
 %%% Four-qubit, 1 and 4
 
@@ -24,6 +24,12 @@ measure4Q_1_4_YX = {'I Y0 X0 I';
 measure4Q_1_4_YY = {'I Y0 Y0 I';
                     'I Y0 Y1 I';
                     'I Y1 Y0 I';
-                    'I Y1 Y1 I'}
+                    'I Y1 Y1 I'};
+                
+measure4Qlist_1_4 = {'I X X I', measure4Q_1_4_XX;
+                     'I X Y I', measure4Q_1_4_XY;
+                     'I Y X I', measure4Q_1_4_YX;
+                     'I Y Y I', measure4Q_1_4_YY};
+
 
                  
