@@ -9,6 +9,9 @@ IDTable3 =  [{'X Z I'};
              {'I Z X'};
              {'- Y X Y'}];         
 
+BTable3 = [{'Z X Z'};
+           {'X I X'};
+           {'- Y X Y'}];
 
 %%% 4-qubits
 genTable4 = [{'X Z I I'};
