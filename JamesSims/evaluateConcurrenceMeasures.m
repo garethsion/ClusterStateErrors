@@ -12,7 +12,8 @@ keep_all_LE_results = true;
 
 %%%%%%%%%%%%%%%%%%%
 
-clear generatorMeasurements LE_bound newResults;
+clear generatorMeasurements LE_bound_min LE_bound_all newResults;
+clear LE_concurrence LE_results LE_bound_alpha;
 
 lastIndex = numberQubits + 1;
 
@@ -67,34 +68,58 @@ for m = 1:numberOfStates
     thisState_ID_observables = thisStateData{1,2};
     these_measurements = thisState_ID_observables(2:lastIndex);
     generatorMeasurements(:,m) = these_measurements';
-    LE_bound(m) = nutzBound(numberQubits,these_measurements);
+    [LE_bound_min(m),LE_bound_all(m)] = nutzBound(numberQubits,...
+                                        these_measurements,true);
+    %%% alpha-based bound... experimental!!!
+    alpha = thisState_ID_observables(1);
+    LE_bound_alpha(m) = fourQubitLEbound(alpha);
+    
 end
 
 newResults = input_data;
 
 newResults{cellRows+1,1} = 'Generator measurements';
 newResults{cellRows+1,2} = generatorMeasurements;
-newResults{cellRows+2,1} = 'Localisable entanglement bound (Nutz)';
-newResults{cellRows+2,2} = LE_bound;
+newResults{cellRows+2,1} = ['Localisable entanglement bound'...
+                                ' (Nutz, minimal)'];
+newResults{cellRows+2,2} = LE_bound_min;
+newResults{cellRows+3,1} = 'Localisable entanglement bound (Nutz, all)';
+newResults{cellRows+3,2} = LE_bound_all;
+newResults{cellRows+4,1} = ['Localisable entanglement bound'...
+                                ' (four qubit alpha)'];
+newResults{cellRows+4,2} = LE_bound_all;
 if found_states
-    newResults{cellRows+3,1} = ['Localisable entanglement '...
+    newResults{cellRows+5,1} = ['Localisable entanglement '...
                                     'bound (concurrence)'];
-    newResults{cellRows+3,2} = LE_concurrence;
+    newResults{cellRows+5,2} = LE_concurrence;
     if keep_all_LE_results
-        newResults{cellRows+3,1} = ['Localisable entanglement '...
+        newResults{cellRows+6,1} = ['Localisable entanglement '...
                                     'detail (concurrence)'];
-    newResults{cellRows+3,2} = LE_results;
+        newResults{cellRows+6,2} = LE_results;
     end
 end
 
-if found_fidelity;
+if found_fidelity
     figure;
-    plot(fidelity,LE_bound,'.k');
+    plot(fidelity,LE_bound_min,'.k');
     xlabel('Fidelity');
     ylabel('Localisable entanglement bound');
+    hold on
+    plot(fidelity,LE_bound_all,'.g');
+    plot(fidelity,LE_bound_alpha,'.b');
     title(plotTitle);
     xlim([0,1]);
+    ylim([0,1]);
+    legend('Nutz bound (minimal)','Nutz bound (all measurements)',...
+            'ID table bound','Location','northwest');
+    if found_states
+        plot(fidelity,LE_concurrence,'.r');
+        legend('Nutz bound (minimal)','Nutz bound (all measurements)',...
+            'ID table bound','Measured LE','Location','northwest');
+    end
 else
     display('No fidelity found to plot against.');
 end
+
+
 
