@@ -1,23 +1,24 @@
 %%%%%%%% Script to evaluate many states %%%%%
 clear eval_results header_row nicetable
 %%%%INPUTS%%%%
-states = Tsweep_10000_correct; % 3D array of density matrices
+states = two_sweep_precession_correct; % 3D array of density matrices
+data_set_name = 'two_precession_sweep'; %
+path_name = 'C:\Users\jseddon\Documents\GitHub\clusterfun\results\';
 N = 3; % Number of qubits.
 IDTable = IDTable3; % Identity product table.
 BTable = BTable3; % Table giving triplet of B observables.
 measure_table = measure3Qlist_1_3; % Measurement settings for LE.
 tolerance = 0.000001; % Tolerance for checking trace(rho) = 1.
-parameter_name = 'Dephasing time'; % name of variable in parameter sweep.
-parameter_bounds = [100 10000] ; % range to sweep between
-data_set_name = 'Tsweep_10000'; %
-path_name = 'C:\Users\jseddon\Documents\GitHub\clusterfun\results\'
+parameter_name = 'Precession time (arbitrary units)'; % name of variable in parameter sweep.
+parameter_bounds = [0 10] ; % range to sweep between
+
 
 %%%%%
 time = clock;
 timestamp = [num2str(time(1)) '-' num2str(time(2)) '-'  num2str(time(3))...
              '-' num2str(time(4)) '-' num2str(time(5))];
          
-file_name = [path_name data_set_name timestamp '.csv'];
+file_name = [path_name data_set_name '_' timestamp '.csv'];
 
 param_range = parameter_bounds(2) - parameter_bounds(1);
 number_states = size(states,3);
@@ -62,11 +63,11 @@ nicetable = vertcat(header_row,num2cell(eval_results));
 num_rows = size(nicetable,1);
 
 
-fid = fopen(file_name,'w')
+fid = fopen(file_name,'w');
   fprintf(fid,['%s, %s, %s, %s, %s, %s, %s,'...
-               ' %s, %s, %s, %s, %s, %s, %s, %s\n'],nicetable{1,:})
+               ' %s, %s, %s, %s, %s, %s, %s, %s\n'],nicetable{1,:});
   for m = 2:(num_rows)
       fprintf(fid,['%f, %f, %f, %f, %f, %f, %f,'...
-               ' %f, %f, %f, %f, %f, %f, %f, %f\n'],nicetable{m,:})
+               ' %f, %f, %f, %f, %f, %f, %f, %f\n'],nicetable{m,:});
   end
-  fclose(fid)
+  fclose(fid);
