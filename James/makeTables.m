@@ -1,4 +1,15 @@
 %%% Script to make ID tables and generator sets
+%%% Three Qubits
+genTable3 = [{'X Z I'};
+             {'Z X Z'};
+             {'I Z X'}];
+
+IDTable3 =  [{'X Z I'};
+             {'Z X Z'};
+             {'I Z X'};
+             {'- Y X Y'}];         
+
+
 %%% 4-qubits
 genTable4 = [{'X Z I I'};
              {'Z X Z I'};
