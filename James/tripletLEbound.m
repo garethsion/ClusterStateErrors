@@ -25,4 +25,8 @@ if sum(sum(~(abs(difference)<=tolerance))) ~= 0
     error(msg);
 end
 
-C = 0.5*(sum(stabilizer_exvalue)-1)
+concurrence_bound = 0.5*(sum(stabilizer_exvalue)-1);
+
+output = concurrence_bound;
+
+end
