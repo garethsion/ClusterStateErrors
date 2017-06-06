@@ -51,11 +51,8 @@ if localise
     localise_results = loc_results{2};
 end
 
-%%% Evaluate C_ZXZ
-C_ZXZ = nutzBound(n,generator_exvals);
-
-%%% Evaluate C_gen
-C_gen = nutzBound(n,generator_exvals,true);
+%%% Evaluate C_ZXZ and C_gen
+[C_ZXZ, C_gen] = nutzBound(n,generator_exvals,true);
 
 %%% Evaluate C_alpha
 C_alpha = IDLEbound(alpha,n);
