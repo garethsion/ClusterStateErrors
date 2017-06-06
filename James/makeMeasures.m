@@ -1,8 +1,18 @@
 %%%%% Make tables for measurement sequences %%%%
 
-%% Single qubit
+%%% Single qubit
 
 Z_measure = {'Z0';'Z1'};
+
+%%% Three qubits, 1 and 3
+measure3Q_1_3_X = {'I X0 I';
+                   'I X1 I'};
+               
+measure3Q_1_3_Y = {'I Y0 I';
+                   'I Y1 I'};
+
+measure3Qlist_1_3 = {'I X I', measure3Q_1_3_X;
+                     'I Y I', measure3Q_1_3_Y};
 
 %%% Four-qubit, 1 and 4
 
