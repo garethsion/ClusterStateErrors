@@ -1,13 +1,26 @@
 function [results, localise_results] = evaluateStateBounds(IDTable,n,rho,varargin)
 %%% Evaluate all quantities of interest for single state of n qubits.
-%%% varargin: argument 4 can be set to a measurementList to calculate
-%%% localisable entanglement (measured as concurrence).
+%%% varargin: 
+%%% (...,'Localise',measurementList,...): set a measurementList to
+%%% calculate localisable entanglement (measured as concurrence).
+%%% (...,'Triplet',stabilizerTable,...): calculate the direct bound from
+%%% Nutz et al. using triplet of stabilizer measurements.
+%%% -99 in output indicates quantity not evaluated
+
 
 localise = false;
+evaluate_triplet = false;
 
 if nargin>3
-    measurementList = varargin{1};
-    localise = true;
+    for k = 1:nargin-4
+        if strcmp('Localise',varargin{k})  
+            measurementList = varargin{k+1};
+            localise = true;
+        end
+        if strcmp('Triplet',varargin{k})  
+            stabilizerList = varargin{k+1};
+            evaluate_triplet = true;
+        end
 end
 
 M = n + 1; % ID table number of rows
@@ -47,12 +60,18 @@ C_gen = nutzBound(n,generator_exvals,true);
 %%% Evaluate C_alpha
 C_alpha = IDLEbound(alpha,n);
 
+%%% Evaluate triplet measurement
+C_triple = -99;
+if evaluate_triplet
+    C_triplet = tripletLEbound(stabilizerList,rho);
+end
+
 %%% output data
 
 results = [rho_fidelity, alpha, ID_lower_fidsquared, ID_upper_fidsquared,...
             ID_lower_fid, ID_upper_fid,...
             local_entanglement,...
-            C_ZXZ, C_gen, C_alpha,...
+            C_ZXZ, C_gen, C_alpha, C_triplet,...
             generator_exvals];
         
 end
