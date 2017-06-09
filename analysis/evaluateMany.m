@@ -1,16 +1,16 @@
 %%%%%%%% Script to evaluate many states %%%%%
 clear eval_results header_row nicetable
 %%%%INPUTS%%%%
-states = two_sweep_precession_correct; % 3D array of density matrices
-data_set_name = 'two_precession_sweep'; %
+states = Tsweep_100_5000_correct_30ns_prec; % 3D array of density matrices
+data_set_name = 'two_sweep_dephasing_100_5000_prec_30ns'; %
 path_name = 'C:\Users\jseddon\Documents\GitHub\clusterfun\results\';
 N = 3; % Number of qubits.
 IDTable = IDTable3; % Identity product table.
 BTable = BTable3; % Table giving triplet of B observables.
 measure_table = measure3Qlist_1_3; % Measurement settings for LE.
 tolerance = 0.000001; % Tolerance for checking trace(rho) = 1.
-parameter_name = 'Precession time (arbitrary units)'; % name of variable in parameter sweep.
-parameter_bounds = [0 10] ; % range to sweep between
+parameter_name = 'Dephasing time (ns)'; % name of variable in parameter sweep.
+parameter_bounds = [100 5000] ; % range to sweep between
 
 
 %%%%%
