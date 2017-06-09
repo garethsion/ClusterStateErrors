@@ -2,12 +2,12 @@
 
 %%%%% INPUTS %%%%%%
 input_data = fourQubitMixedResults_3000;
-numberQubits = 4;
+numberQubits = 5;
 plotTitle = ['Four qubits, cluster state mixed with '...
                 'random state'];
 LE_measure_list = measure4Qlist_1_4;
 qubit_1 = 1; %% first target qubit for LE
-qubit_2 = 4; %% second target qubit for LE
+qubit_2 = 5; %% second target qubit for LE
 keep_all_LE_results = true;
 
 %%%%%%%%%%%%%%%%%%%
@@ -85,7 +85,7 @@ newResults{cellRows+2,2} = LE_bound_min;
 newResults{cellRows+3,1} = 'Localisable entanglement bound (Nutz, all)';
 newResults{cellRows+3,2} = LE_bound_all;
 newResults{cellRows+4,1} = ['Localisable entanglement bound'...
-                                ' (four qubit alpha)'];
+                                ' (five qubit alpha)'];
 newResults{cellRows+4,2} = LE_bound_all;
 if found_states
     newResults{cellRows+5,1} = ['Localisable entanglement '...
