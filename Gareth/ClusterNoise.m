@@ -1,13 +1,15 @@
-function cluster = Cluster(int, init_state)
+function cluster_noise = ClusterNoise(int, init_state)
     % CLUSTER - Generates an N dimensional cluster state, following Linder
     % and Rudolph technique
     % Usage: cstate = Cluster(no_of_photons, initial_state) 
     
     sigmaX = [0,1;1,0];
+    sigmaZ = [1,0;0,-1];
     initial_state = init_state;
-    G = 1/sqrt(2)*[1,1i;1i,1]; % Unitary evolution of state
-%     theta = -pi/4;
-%     G = expm(-1i*(theta/2)*sigmaX);
+    %G = 1/sqrt(2)*[0.98,0.98i;0.92i,0.5] %+ -5*1/sqrt(2)*[1,1i;1i,1] %+ 7.86*sigmaZ;
+    %G = 1/sqrt(2)*[1,1i;1i,1] + 6.41*sigmaX + 8.86*sigmaZ;
+    %G = 1/sqrt(2)*[1,1i;1i,1] + 0*sigmaX + 0*sigmaZ;
+    G = 1/sqrt(2)*[1,1i;1i,1] + [-0.1, -0.54;-0.365,-0.4]  ; % Unitary evolution of state 
     CNOT = cnot();
 
     no_of_qubits = int;
@@ -24,5 +26,5 @@ function cluster = Cluster(int, init_state)
             cycle = kron(G, eye(2^n))*CNOT*space;
         end
     end
-    cluster = cycle;
+    cluster_noise = cycle;
 end

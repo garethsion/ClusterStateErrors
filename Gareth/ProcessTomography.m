@@ -36,28 +36,29 @@ state = zeros(4,16);
 for x=1:4
     for y = 1:4
         state(:,4*(x-1)+y) = Cluster(number_of_photons,(kron(input(:,x),input(:,y))));
+        %state(:,4*(x-1)+y) = Cluster(number_of_photons,(kron(input(:,x),input(:,y))));
     end
 end
 
 rho = zeros(4,64);
 
 % Build density matrices. Can implement this is a loop for neatness
-rho_HH = state(:,1)*state(:,1)';
-rho_HV = state(:,2)*state(:,2)';
-rho_HD = state(:,3)*state(:,3)';
-rho_HR = state(:,4)*state(:,4)';
-rho_VH = state(:,5)*state(:,5)';
-rho_VV = state(:,6)*state(:,6)';
-rho_VD = state(:,7)*state(:,7)';
-rho_VR = state(:,8)*state(:,8)';
-rho_DH = state(:,9)*state(:,9)';
-rho_DV = state(:,10)*state(:,10)';
-rho_DD = state(:,11)*state(:,11)';
-rho_DR = state(:,12)*state(:,12)';
-rho_RH = state(:,13)*state(:,13)';
-rho_RV = state(:,14)*state(:,14)';
-rho_RD = state(:,15)*state(:,15)';
-rho_RR = state(:,16)*state(:,16)';
+% rho_HH = state(:,1)*state(:,1)';
+% rho_HV = state(:,2)*state(:,2)';
+% rho_HD = state(:,3)*state(:,3)';
+% rho_HR = state(:,4)*state(:,4)';
+% rho_VH = state(:,5)*state(:,5)';
+% rho_VV = state(:,6)*state(:,6)';
+% rho_VD = state(:,7)*state(:,7)';
+% rho_VR = state(:,8)*state(:,8)';
+% rho_DH = state(:,9)*state(:,9)';
+% rho_DV = state(:,10)*state(:,10)';
+% rho_DD = state(:,11)*state(:,11)';
+% rho_DR = state(:,12)*state(:,12)';
+% rho_RH = state(:,13)*state(:,13)';
+% rho_RV = state(:,14)*state(:,14)';
+% rho_RD = state(:,15)*state(:,15)';
+% rho_RR = state(:,16)*state(:,16)';
 
 % Build the Chi matrix. This follows the Beterov paper for performing state
 % tomography on two qubits. 
@@ -99,10 +100,11 @@ rho_matrix = [rho_HH',rho_HV',rho_HD',rho_HR';rho_VH',rho_VV',rho_VD',...
     rho_VR';rho_DH',rho_DV',rho_DD',rho_DR';rho_RH',rho_RV',rho_RD',...
     rho_RR'];
 
-rho_test = conversion*rho_matrix
+% rho_test = conversion*rho_matrix
 
 %Chi = K' * rho_matrix * K;
-Chi = K' * rho_test' * K;
+% Chi = K' * rho_test' * K;
+Chi = K' * rho_matrix' * K;
 figure;bar3(real(Chi));hold on; bar3(imag(Chi));
 title(sprintf('Process Matrix Describing Evolution\n of System in Each Cycle'), 'FontSize', 30)
 

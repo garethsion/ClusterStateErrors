@@ -1,6 +1,6 @@
 load('Transformation2.mat');
-filename1=('C:\Users\gjones\Dropbox\University College London\Group C density matrices\two_072_100.mat');
-filename2=('C:\Users\gjones\Dropbox\University College London\Group C density matrices\two_100_100.mat');
+filename1=('C:\Users\Gareth\Dropbox\University College London\Group C density matrices\two_072_100.mat');
+filename2=('C:\Users\Gareth\Dropbox\University College London\Group C density matrices\two_100_100.mat');
 rho_noisy_072=importdata(filename1);
 rho_noisy_100=importdata(filename2);
 [pathstr,name,ext] = fileparts(filename1);
@@ -40,6 +40,11 @@ title(sprintf(['Noisy Cluster\n State Density Matrix: \n Fidelity = '...
 
 % LE_ideal = LocEntanglement4(rho_cluster)
 % LE_noisy = LocEntanglement4(transformed)
+minus = kron(1/sqrt(2) * [1;-1],[1;0]);
+clust = ClusterSweepNoise(2,minus,-0.1,-0.1);
+ideal = ClusterMaker(3);
+rho_no = clust*clust';
+LE = LocEntanglement3(rho_no,3);
 LE_ideal = LocEntanglement3(Clust,1);
 
 outcomes_072 = zeros(3,1);
@@ -53,15 +58,8 @@ outcomes_100(2) = LocEntanglement3(transformed_100,2);
 outcomes_100(3) = LocEntanglement3(transformed_100,3);
 
 dist_axis=[1,2];
-
-max_d1_072 = max(outcomes_072(1),outcomes_072(2));
-out_axis_072 = [max_d1_072,outcomes_072(3)];
-
-max_d1_100 = max(outcomes_100(1),outcomes_100(2));
-out_axis_100 = [max_d1_100,outcomes_100(3)];
-
-%out_axis_072 = [outcomes_072(1),outcomes_072(2)];
-%out_axis_100 = [outcomes_100(1),outcomes_100(2)];
+out_axis_072 = [outcomes_072(1),outcomes_072(2)];
+out_axis_100 = [outcomes_100(1),outcomes_100(2)];
 
 % %lambdaE = (log(out_axis_100(1)/0.5))/-2; % Find entanglement length
 % % lambdaE = 2.7; %100

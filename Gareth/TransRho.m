@@ -1,5 +1,5 @@
 function transformed = TransRho(rho)
-    %perfect_3=load('C:\Users\gjones\Dropbox\University College London\Group C density matrices\perfect_3')
+    %perfect_3=importdata('C:\Users\gjones\Dropbox\University College London\Group C density matrices\perfect_3')
     perfect_3=importdata('C:\Users\Gareth\Dropbox\University College London\Group C density matrices\perfect_3.mat');
     rounded=round(perfect_3*(16));
     roundedV=0.25*rounded(:,1);
